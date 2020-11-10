@@ -1,0 +1,10 @@
+<div class="optionPanier">
+<!-- Permet de vider le panier-->
+<button onclick= "location.href ='{{path('viderPanier')}}'">Vider</button>
+<!--Retourne au cataloque-->
+<button onclick= "location.href ='{{path('menu') }}'">Retour au catalogue</button>
+<!--Déclanche la commande-->
+{% if app.session.get("NombreItem") != 0 and app.session.get('Connecter') == true %}
+<button onclick= "location.href ='{{path('menuCommande') }}'">Lancée la commande</button>
+{% endif %}
+</div>

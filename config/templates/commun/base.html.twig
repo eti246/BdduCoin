@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html lang='fr'>
+    <head>
+        {{include('commun/META_CSS_JS_BOOTSTRAP.html.twig')}}
+        <link rel='stylesheet' href="{{asset('css/corp.css')}}">
+        {% block styleSheets %} {% endblock %}
+    </head>
+    <body>
+        <div class='container'>
+            {{include('commun/enTete.html.twig')}}
+            {% block principal %} {% endblock %}
+            {{include('commun/pied.html.twig')}}
+        </div>
+        {% block javaScripts %} {% endblock %}
+    </body>
+</html>

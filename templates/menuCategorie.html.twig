@@ -1,0 +1,15 @@
+
+    <div class="categorie">
+     <!--Affiche la barre de recherche-->
+    <form id ="texteForme" method='POST'>
+        <input type="text" id="texteRecherche" name="texte"/>
+        <input type="submit" name="texteRechercheSubmit" value = "Recherche">
+    </form>
+    <hr>
+     
+     <button onclick="location.href='{{path('recherche',{id:0} ) }}'" type="button">Toutes</button>
+     <!--Affiche toutes les categories-->
+    {% for item in tabCategorie %}
+       <button onclick="location.href='{{path('recherche',{id :item.idCategorie} ) }}'" type="button">{{item.nom}}</button>
+    {% endfor %}
+    </div>

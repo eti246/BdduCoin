@@ -1,0 +1,13 @@
+<ul>
+<div class="categorie">
+    <form id ="texteForme" method='POST'>
+        <input type="text" id="texteRecherche" name="texte"/>
+        <input type="submit" name="texteRechercheSubmit" value = "Recherche">
+    </form>
+    <hr>
+     <a href="{{path('recherche',{id:0} ) }}"><button class ="button">Toutes</button></a>
+    {% for item in tabCategorie %}
+       <a href="{{path('recherche',{id :item.idCategorie} ) }}"><button class ="button">{{item.nom}}</button></a>
+    {% endfor %}
+    </div>
+</ul>

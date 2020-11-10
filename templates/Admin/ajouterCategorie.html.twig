@@ -1,0 +1,15 @@
+{% extends 'Admin/Commun Admin/base.html.twig' %}
+{% block principal %}
+
+<h2>Ajouter Une Catégorie</h2>
+<div class='row'>
+<section class='col-3'>
+        <!--Affiche les categories-->
+        {{include('Admin/Ajouter Categorie/listCategorie.html.twig')}}
+    </section>
+    <section class='col-9'>
+        <!--Affiche les produits-->
+        {{include('Admin/Ajouter Categorie/formulaireAjoutCategorie.html.twig')}}
+    </section>
+</div>
+{% endblock %}

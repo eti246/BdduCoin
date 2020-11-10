@@ -1,0 +1,47 @@
+{% extends 'Admin/Commun Admin/base.html.twig' %}
+{% block principal %}
+<h2>Modification du produit {{produit.nomProduit}}</h2>
+
+<form method="POST">
+<input type='hidden' name='id' value={{produit.id}}>
+{% if valideNom %}
+Nom de produit invalide<br>
+{% endif %}
+Nom du Produit: <input type="text" name="nomProduit" value="{{produit.nomProduit}}"><br>
+
+
+Categorie: <select id="idcategorie" name="categorie">
+{% for item in categorie %}
+    {% if item.idCategorie == produit.idCategorie %}
+    <option value="{{item.idCategorie}}" selected="selected"> {{item.nom}}</option>
+    {% else %}
+    <option value="{{item.idCategorie}}"> {{item.nom}}</option>
+    {% endif %}
+{% endfor %}
+</select><br>
+
+{% if valideDescription %}
+Description invalide<br>
+{% endif %}
+Description : <input type="text" name="description" value="{{produit.description}}" size="75" ><br>
+
+
+{% if valideStock %}
+Quantite en stock invalide <br>
+{% endif %}
+Quantite en stock : <input type="number" min ="0" name ="quantiteStock" value="{{produit.quatiteStock}}"><br> 
+
+{% if valideMinimal %}
+Quantite minimal invalide<br>
+{% endif %}
+Quantite Minimale : <input type="number" min ="0" name ="quantiteMinimal" value="{{produit.quantiteminimale	}}"><br> 
+
+{% if validePrix %}
+Prix invalide <br>
+{% endif %}
+Prix : <input type="number" min ="0" name ="prix" value="{{produit.prix	}}"><br> 
+<input type="submit" name="Soumetre" value="Modifier Produit">
+</form>
+<button onclick= "location.href ='{{path('modifierImage',{id :produit.id} ) }}'">Modifier les images</button><br>
+<button onclick= "location.href ='{{path('adminmenu') }}'">Revenir au menu de sélection</button>
+{% endblock %}

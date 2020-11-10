@@ -1,0 +1,42 @@
+{% extends 'Admin/Commun Admin/base.html.twig' %}
+{% block principal %}
+<h2>Ajout de Produit</h2>
+
+<form method="POST">
+
+{% if valideNom %}
+Nom de produit invalide<br>
+{% endif %}
+Nom du Produit: <input type="text" name="nomProduit"><br>
+
+
+Categorie: <select id="idcategorie" name="categorie">
+{% for item in categorie %}
+    <option value="{{item.idCategorie}}"> {{item.nom}}</option>
+{% endfor %}
+</select><br>
+
+{% if valideDescription %}
+Description invalide<br>
+{% endif %}
+Description : <input type="text" name="description"><br>
+
+
+{% if valideStock %}
+Quantite en stock invalide <br>
+{% endif %}
+Quantite en stock : <input type="number" min ="0" name ="quantiteStock"><br> 
+
+{% if valideMinimal %}
+Quantite minimal invalide<br>
+{% endif %}
+Quantite Minimale : <input type="number" min ="0" name ="quantiteMinimal"><br> 
+
+{% if validePrix%}
+Prix invalide <br>
+{% endif %}
+Prix : <input type="number" min ="0" name ="prix"><br> 
+<input type="submit" name="Soumetre" value="Rajouter Produit">
+</form>
+<button onclick= "location.href ='{{path('adminmenu') }}'">Revenir au menu de sélection</button>
+{% endblock %}

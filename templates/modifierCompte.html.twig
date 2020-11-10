@@ -1,0 +1,193 @@
+{% extends 'commun/base.html.twig' %}
+
+{% block principal %}
+<h2>Compte de {{app.session.get('NomUtilisateurConnecter')}}</h2>
+ <div class='row'>
+    <section class='col-4 '>
+        <form method="POST">
+        <input hidden type="text" name="modifNomUtilisateur" value={{app.session.get("NomUtilisateurConnecter")}}>
+
+        {%  if app.session.get('InvalidePrenom') == true %}
+        <div class="rouge">Erreur dans le changement de Prenom </div><br>
+        {% endif %}
+        Votre Prenom: <input type="text" name="modifPrenom" value= {{app.session.get("PrenomConnecter")}}><br>
+
+        {%  if app.session.get('InvalideNom') == true %}
+        <div class="rouge">Erreur dans le changement de Nom </div><br>
+        {% endif %}
+        Votre Nom: <input type="text" name="modifNom" value={{app.session.get("NomConnecter")}}> <br>
+        {%  if app.session.get('InvalideCourriel') == true %}
+        <div class="rouge">Erreur dans le changement de Courriel </div><br>
+        {% endif %}
+        Votre Courriel: <input type="text" name="modifCourriel" value={{app.session.get("CourrielConnecter")}}><br>
+        Votre Genre: 
+        <select name="modifGenre" size ="1">
+            {% if app.session.get('GenreConnecter') =='Homme' %}
+            <option selected="selected">Homme</option>
+            <option>Femme</option>
+            <option>Autre</option>
+            {% elseif app.session.get('GenreConnecter') =='Femme' %}
+            <option>Homme</option>
+            <option selected="selected">Femme</option>
+            <option>Autre</option>
+            {% else %}
+            <option>Homme</option>
+            <option>Femme</option>
+            <option selected="selected">Autre</option>
+            {% endif %}
+        </select><br>
+        {%  if app.session.get('InvalideAdresse') == true %}
+        <div class="rouge">Erreur dans le changement d'Adresse </div><br>
+        {% endif %}
+        Votre Adresse: <input type="text" name="modifAdresse" value="{{app.session.get('AdresseConnecter')}}"><br>
+        {%  if app.session.get('InvalideVille') == true %}
+        <div class="rouge">Erreur dans le changement de Ville </div><br>
+        {% endif %}
+        Votre Ville: <input type="text" name="modifVille" value={{app.session.get("VilleConnecter")}}><br>
+        Votre province: 
+        <select name="modifProvince" size ="1">
+            {% if app.session.get('ProvinceConnecter') =='QC' %}
+            <option selected="selected">QC</option>
+            <option>ON</option>
+            <option>AB</option>
+            <option>PE</option>
+            <option>MB</option>
+            <option>NB</option>
+            <option>SK</option>
+            <option>NL</option>
+            <option>NT</option>
+            <option>YT</option>
+            {% elseif app.session.get('ProvinceConnecter') =='ON' %}
+            <option>QC</option>
+            <option selected="selected">ON</option>
+            <option>AB</option>
+            <option>PE</option>
+            <option>MB</option>
+            <option>NB</option>
+            <option>SK</option>
+            <option>NL</option>
+            <option>NT</option>
+            <option>YT</option>
+            {% elseif app.session.get('ProvinceConnecter') =='AB' %}
+            <option>QC</option>
+            <option>ON</option>
+            <optionselected="selected">AB</option>
+            <option>PE</option>
+            <option>MB</option>
+            <option>NB</option>
+            <option>SK</option>
+            <option>NL</option>
+            <option>NT</option>
+            <option>YT</option>
+            {% elseif app.session.get('ProvinceConnecter') =='PE' %}
+            <option>QC</option>
+            <option >ON</option>
+            <option>AB</option>
+            <option selected="selected">PE</option>
+            <option>MB</option>
+            <option>NB</option>
+            <option>SK</option>
+            <option>NL</option>
+            <option>NT</option>
+            <option>YT</option>
+            {% elseif app.session.get('ProvinceConnecter') =='MB' %}
+            <option>QC</option>
+            <option >ON</option>
+            <option>AB</option>
+            <option>PE</option>
+            <optionselected="selected">MB</option>
+            <option>NB</option>
+            <option>SK</option>
+            <option>NL</option>
+            <option>NT</option>
+            <option>YT</option>
+            {% elseif app.session.get('ProvinceConnecter') =='NB' %}
+            <option>QC</option>
+            <option>ON</option>
+            <option>AB</option>
+            <option>PE</option>
+            <option>MB</option>
+            <option  selected="selected">NB</option>
+            <option>SK</option>
+            <option>NL</option>
+            <option>NT</option>
+            <option>YT</option>
+            {% elseif app.session.get('ProvinceConnecter') =='SK' %}
+            <option>QC</option>
+            <option>ON</option>
+            <option>AB</option>
+            <option>PE</option>
+            <option>MB</option>
+            <option>NB</option>
+            <option selected="selected">SK</option>
+            <option>NL</option>
+            <option>NT</option>
+            <option>YT</option>
+            {% elseif app.session.get('ProvinceConnecter') =='NL' %}
+            <option>QC</option>
+            <option>ON</option>
+            <option>AB</option>
+            <option>PE</option>
+            <option>MB</option>
+            <option>NB</option>
+            <option>SK</option>
+            <option selected="selected">NL</option>
+            <option>NT</option>
+            <option>YT</option>
+            {% elseif app.session.get('ProvinceConnecter') =='NT' %}
+            <option>QC</option>
+            <option selected="selected">ON</option>
+            <option>AB</option>
+            <option>PE</option>
+            <option>MB</option>
+            <option>NB</option>
+            <option>SK</option>
+            <option>NL</option>
+            <option selected="selected">NT</option>
+            <option>YT</option>
+            {% else %}
+            <option>QC</option>
+            <option selected="selected">ON</option>
+            <option>AB</option>
+            <option>PE</option>
+            <option>MB</option>
+            <option>NB</option>
+            <option>SK</option>
+            <option>NL</option>
+            <option>NT</option>
+            <option selected="selected">YT</option>
+            {% endif %}
+        </select>
+        <br>
+        {%  if app.session.get('InvalideCodePostal') == true %}
+        <div class="rouge">Erreur dans le changement du CodePostal </div><br>
+        {% endif %}
+        Votre Code Postal: <input type="text" name="modifCodePostal" value="{{app.session.get('CodePostalConnecter')}}"><br>
+        {%  if app.session.get('InvalideTelephone') == true %}
+        <div class="rouge">Erreur dans le changement de telephone </div><br>
+        {% endif %}
+        Votre Telephone: <input type="text" name="modifTelephone" value={{app.session.get("TelephoneConnecter")}}><br>
+       
+        <input type="submit" name="Soumetre" value="Modifier Compte">
+        </form>
+        
+        
+    </section>
+    
+    <section class='col-8'>
+
+    <form method ="POST">
+    <input hidden type="text" name="modifNomUtilisateur" value={{app.session.get("NomUtilisateurConnecter")}}>
+    {%  if app.session.get('InvalideMP') == false %}
+        <div class="rouge">Erreur dans le changement du mot de passe </div><br>
+    {% endif %}
+
+    Votre Ancien Mot de Passe: <input type="text" name="AncientMP"><br>
+    Nouveau Mot de Passe: <input type="text" name="NouvMP"><br>
+    Confirmer Mot de Passe: <input type="text" name="ConfirmMP"><br> 
+    <input type="submit" name="Soumetre" value="Modifier Mot de Passe">
+    </form>    
+    </section>
+
+</div>
+{% endblock %}

@@ -1,0 +1,64 @@
+<div class="produitPanier">
+
+<!--Regarde si il a des produit dans le panier-->
+{% if  produits is empty %}
+<h2>Panier Vide<h2><hr>
+<!--Si il n'y en à pas-->
+{% else %}
+
+<!--Créé un tableau-->
+<table style="width:100%">
+
+<!--Pour chaque Produit-->
+{% for item in produits %}
+
+<!--Ligne du tableau-->
+<tr>
+
+    <!--Case du tableau Contenant l'image du produit-->
+    <th style="width:5%"><img width='90' src="{{ asset('Comic/prod' ~ item.id ~ '.jpg')}}" onerror="this.src='{{asset('Comic/inf.png')}}';"  alt="Image not found"></th>
+
+    
+    <!--Case du tableau Contenant le nom-->
+    <th>{{item.nomProduit}}</th>
+    <th style="width:25%">
+    <!--Case du tableau Contenant la quantité-->
+    <form method="POST">
+    Quantité: 
+        <input type="hidden" value={{item.id}} name="idItem">
+        <input type="number" min="0" name="quantite" value="{{item.quantite}}">
+        <input type="submit" name="ModifierBTN" value="Modifier">
+    </form>
+    </th>
+    <th>
+    <!--Case du tableau le prix-->
+    Prix à l'unité: {{item.prix}}$<br>
+    Prix Total: {{ item.prix * item.quantite }}$
+    </th>
+    <!--Case du tableau Contenant le bouton pour enlever le produit -->
+    <th>
+
+        <button onclick="location.href='{{path('enleverProduitPanier',{id:item.id} ) }}'">Supprimer du panier</button><br>
+    </th>
+</tr>
+
+
+
+{% endfor %}
+</table>
+
+
+<!--Tableau Contenant le prix-->
+<table style="width:100%">
+<tr>
+<th>
+    Total: {{totalBrute}}$<br>
+    TPS: {{totalBrute*0.05|number_format(2,'.',',') }}$<br>
+    TVQ: {{(totalBrute*0.09975)|number_format(2,'.',',')}}$<br>
+    Total Avec Taxe: {{(totalBrute*0.09975+ totalBrute*0.05+ totalBrute)|number_format(2,'.',',')}}$ <br>
+    
+</th>
+</tr>
+</table>
+{% endif %}
+</div>

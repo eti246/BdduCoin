@@ -1,0 +1,27 @@
+<!--Affiche la banière-->
+<div class='row banniere'>
+    <h1> Bd Du Coin </h1>
+    <a href="{{path('menu')}}"><img src="{{asset('Banière/logo.jpg')}}" alt='logo Boutique'/></a>
+</div>
+<div class='contenuSite'>
+<nav id='navbar' class='row justify-content-end navbar navbar-expand-sm bg-dark navbar-dark'>
+    <ul class='navbar-nav'>
+        <!--Les éléments de la barre de navigation-->
+        <li class='nav-item'><a class='nav-link' href="{{path('menu') }}">Catalogue</a></li>
+        <li class='nav-item'><a class='nav-link' href="{{path('menuContact') }}">Contact</a></li>
+        {% if app.session.get('Connecter') == false %}
+        <li class='nav-item'><a class='nav-link' href='{{path('menuCreerCompte')}}'>Création d'un compte</a></li>
+        <li class='nav-item'><a class='nav-link' href='{{path('menuConnectionUser')}}'>Connexion</a></li>
+        {% else %}
+        <li class='nav-item'><a class='nav-link' href='{{path('modifierCompte')}}'>Modifier Compte</a></li>
+        <li class='nav-item'><a class='nav-link' href='{{path('menuAfficherCommande')}}'>Mes Achats</a></li>
+        <li class='nav-item'><a class='nav-link' href='{{path('menuDeconnection')}}'>Deconnexion</a></li>
+        {% endif %}
+        {% if app.session.get('NombreItem') < 2 %}
+        <li class='nav-item'><a class='nav-link' href='{{path('menuPanier')}}'>Panier ({{ app.session.get('NombreItem') }} Produit)</a></li>
+        {% else %}
+        <li class='nav-item'><a class='nav-link' href='{{path('menuPanier')}}'>Panier ({{ app.session.get('NombreItem') }} Produits)</a></li>
+        {% endif %}
+    </ul>
+</nav>
+</div>

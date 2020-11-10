@@ -1,0 +1,13 @@
+{% extends 'commun/base.html.twig' %}
+
+{% block principal %} 
+
+<form method="POST">
+{% if app.session.get('Echec') == false %}
+<div class= "rouge">Un de vos champs est incorrect</div><br>
+{% endif %}
+    Nom d'utilisateur:  <input type="text" name="userConnection">
+                    Mot de Passe: <input type="text" name="mpConnection">
+                      <input type="submit" name="Soumetre" value="Connection">
+</form>
+{% endblock %}

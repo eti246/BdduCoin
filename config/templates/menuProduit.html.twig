@@ -1,0 +1,34 @@
+<ul>
+  
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+    {% for item in tabProduit %}
+    <div class="w3-container">
+
+        <button class="buttonProduit" onclick="document.getElementById('{{item.idProduit}}').style.display='block'" >
+            <img width='150' src="{{ asset('Comic/' ~ item.nomProduit ~ '.jpg') }}" onerror="this.src='{{asset('Comic/inf.png')}}';"  alt="Image not found"><br>
+            <b>{{item.nomProduit}}</b>
+        </button>  
+            <button><img width = "45" src=" {{asset('Comic/panier.png')}}" onerror="this.src='{{asset('Comic/inf.png')}}';"  alt="Image not found"></button>
+        <div id="{{item.idProduit}}" class="w3-modal">
+    <div class="w3-modal-content">
+      <div class="w3-container">
+        <span onclick="document.getElementById('{{item.idProduit}}').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+            <h1><b>{{item.nomProduit}}</b></h1>
+            <br><br>
+             <section class='col-4 catalogue'>
+             <img src='{{asset('Comic/inf.png')}}'/>
+             </section>
+             <section class='col-8 catalogue'>
+                {{item.description}}<br>
+                {{item.prix}}$<br>
+                En Stock : {{item.quatiteStock}}
+                <button><img width = "45" src=" {{asset('Comic/panier.png')}}" onerror="this.src='{{asset('Comic/inf.png')}}';"  alt="Image not found"></button><br>
+             </section>
+      </div>
+    </div>
+  </div>  
+</div>    
+    {% endfor %}
+</ul>

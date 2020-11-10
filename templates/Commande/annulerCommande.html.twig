@@ -1,0 +1,12 @@
+{% extends 'commun/base.html.twig' %}
+ 
+
+
+
+
+{% block principal %}
+
+<button onclick="location.href='{{path('commandeAnnuler',{id :id} ) }}'" type="button">Confirmation de l'annulation de la commande</button>
+<button onclick= "location.href ='{{path('menu') }}'">Retour au catalogue</button>
+<button onclick= "location.href ='{{path('menuPanier')}}'" >Retour au Panier</button>
+{% endblock %}

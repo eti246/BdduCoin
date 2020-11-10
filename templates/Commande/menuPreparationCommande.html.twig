@@ -1,0 +1,54 @@
+{% extends 'commun/base.html.twig' %}
+
+{% block principal %}
+Cher client, votre commande en cours de préparation.<br>
+
+Votre Numero de Commande: {{ idCommande }}<br>
+
+
+
+Le colis sera envoyer à : {{ app.session.get("AdresseConnecter")}} {{app.session.get("ProvinceConnecter")}}<br>
+
+Le courriel de confirmation vous à été envoyer à l'adresse : {{app.session.get("CourrielConnecter")}}<br><br><br>
+
+<!-- IF produit en rupture-->
+{% if produitEnRuputure is empty%}
+{% else %}
+Les produit suivant sont en rupture: <br>
+
+<!--Créé un tableau-->
+<table style="width:100%">
+
+<!--Pour chaque Produit-->
+{% for item in produitEnRuputure %}
+
+<!--Ligne du tableau-->
+<tr>
+
+    <!--Case du tableau Contenant l'image du produit-->
+    <th style="width:5%"><img width='90' src="{{ asset('Comic/prod' ~ item.id ~ '.jpg')}}" onerror="this.src='{{asset('Comic/inf.png')}}';"  alt="Image not found"></th>
+
+    
+    <!--Case du tableau Contenant le nom-->
+    <th>{{item.nomProduit}}</th>
+    <th style="width:25%">
+    <!--Case du tableau Contenant la quantité-->
+    Quantité: 
+        {{item.quatitestock}} 
+    </th>
+  
+</tr>
+
+
+
+{% endfor %}
+</table>
+
+
+{% endif %}
+<br><br>
+<button onclick= "location.href ='{{path('menu') }}'">Retour au catalogue</button> 
+
+
+
+{% endblock %}

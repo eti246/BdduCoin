@@ -1,0 +1,166 @@
+{% extends 'commun/base.html.twig' %}
+
+{% block principal %}
+
+<form method="POST"> 
+<!--//////////////////////////////////////////////////////////////////////////////////-->
+    {% if app.session.get('utilisateur') and app.session.get('utilisateur') !=1 %}
+        <div class="rouge">
+        {{ app .session.get('utilisateur')}}<br>
+        </div>
+    {% endif %}
+    {% if app.session.get('utilisateurInfo')%}
+        Nom d'utilisateur: <input type="text" name="nomUtilisateur" value={{app.session.get('utilisateurInfo')}}> <br>
+    {% else %}
+        Nom d'utilisateur: <input type="text" name="nomUtilisateur" > <br>
+    {% endif %}
+<!--//////////////////////////////////////////////////////////////////////////////////-->
+
+<!--//////////////////////////////////////////////////////////////////////////////////-->
+   {% if app.session.get('prenom') and app.session.get('prenom') !=1 %}
+       <div class="rouge">
+            {{ app.session.get('prenom')}}<br>
+        </div>
+    
+    {% endif %}
+    {% if app.session.get('utilisateurInfo')%}
+        Prenom: <input type="text" name="prenom"  value={{app.session.get('prenomInfo')}}> <br>
+    {% else %}
+        Prenom: <input type="text" name="prenom" > <br>
+       
+    {% endif %}
+
+<!--//////////////////////////////////////////////////////////////////////////////////-->
+
+<!--//////////////////////////////////////////////////////////////////////////////////-->
+    {% if app.session.get('nom') and app.session.get('nom') !=1 %}
+        <div class="rouge">
+        {{ app.session.get('nom')}}<br>
+        </div>
+    {% endif %}
+    {% if app.session.get('utilisateurInfo')%}
+        Nom: <input type="text" name="nom"  value={{app.session.get('nomInfo')}}> <br>
+    {% else %}
+        Nom: <input type="text" name="nom" > <br>
+       
+    {% endif %}
+
+<!--//////////////////////////////////////////////////////////////////////////////////-->
+    Genre: 
+    <select name="genre" size ="1">
+        <option>Homme</option>
+        <option>Femme</option>
+        <option>Autre</option>
+    </select><br>
+
+<!--//////////////////////////////////////////////////////////////////////////////////-->
+    {% if app.session.get('adresse') and app.session.get('adresse') !=1 %}
+        <div class="rouge">
+            {{ app.session.get('adresse')}}<br>
+            
+        </div>
+    {% endif %}
+      {% if app.session.get('utilisateurInfo')%}
+        Adresse: <input type="text" name="adresse"  value={{app.session.get('adresseInfo')}}> <br>
+    {% else %}
+         Adresse: <input type="text" name="adresse" > <br>
+   {% endif %}
+<!--//////////////////////////////////////////////////////////////////////////////////-->
+
+<!--//////////////////////////////////////////////////////////////////////////////////-->
+   {% if app.session.get('ville') and app.session.get('ville') !=1 %}
+     <div class="rouge">
+            
+        {{ app.session.get('ville')}}<br>
+        </div>
+    {% endif %}
+    {% if app.session.get('utilisateurInfo')%}
+        Ville: <input type="text" name="ville"  value={{app.session.get('villeInfo')}}> <br>
+    {% else %}
+          Ville: <input type="text" name="ville" > <br>
+   {% endif %}
+   
+<!--//////////////////////////////////////////////////////////////////////////////////-->
+    Province: 
+    <select name="province" size ="1">
+        <option>QC</option>
+        <option>ON</option>
+        <option>AB</option>
+        <option>PE</option>
+        <option>MB</option>
+        <option>NB</option>
+        <option>SK</option>
+        <option>NL</option>
+        <option>NT</option>
+        <option>YT</option>
+    </select><br>
+
+<!--//////////////////////////////////////////////////////////////////////////////////-->
+    {% if app.session.get('telephone') and app.session.get('telephone') !=1 %}
+      <div class="rouge">
+            
+        {{ app.session.get('telephone')}}<br>
+        </div>
+    {% endif %}
+     {% if app.session.get('utilisateurInfo')%}
+       Telephone : <input type="text" name="telephone" value={{app.session.get('telephoneInfo')}}> <br>
+    {% else %}
+          Telephone : <input type="text" name="telephone"><br>
+   {% endif %}
+    
+<!--//////////////////////////////////////////////////////////////////////////////////-->
+
+<!--//////////////////////////////////////////////////////////////////////////////////-->
+   {% if app.session.get('codePostal') and app.session.get('codePostal') !=1 %}
+     <div class="rouge">
+            
+        {{ app.session.get('codePostal')}}<br>
+        </div>
+    {% endif %}
+     {% if app.session.get('utilisateurInfo')%}
+        Code Postal: <input type="text" name="codePostal" value={{app.session.get('codePostalInfo')}}> <br>
+    {% else %}
+        Code Postal: <input type="text" name="codePostal" > <br>
+   {% endif %}
+   
+
+<!--//////////////////////////////////////////////////////////////////////////////////-->
+
+<!--//////////////////////////////////////////////////////////////////////////////////-->
+    {% if app.session.get('courriel') and app.session.get('courriel') !=1 %}
+      <div class="rouge">
+            
+        {{ app.session.get('courriel')}}<br>
+        </div>
+    {% endif %}
+    {% if app.session.get('utilisateurInfo')%}
+         Adresse Couriel: <input type="text" name="courriel" value={{app.session.get('courrielInfo')}}> <br>
+    {% else %}
+        Adresse Couriel: <input type="text" name="courriel" > <br>
+   {% endif %}
+   
+<!--//////////////////////////////////////////////////////////////////////////////////-->
+
+<!--//////////////////////////////////////////////////////////////////////////////////-->
+    {% if app.session.get('mp') and app.session.get('mp') !=1 %}
+      <div class="rouge">
+        {{ app.session.get('mp')}}<br>
+            
+        </div>
+    {% endif %}
+    
+    Mot de Passe:<input type="text" name="mp" > <br>
+<!--//////////////////////////////////////////////////////////////////////////////////-->
+
+<!--//////////////////////////////////////////////////////////////////////////////////-->
+    {% if app.session.get('mpConfirme') and app.session.get('mpConfirme') !=1 %}
+      <div class="rouge">
+            
+        {{ app.session.get('mpConfirme')}}<br>
+        </div>
+    {% endif %}
+    Confimation Mot de Passe: <input type="text" name="mpConfirme" > <br>
+<!--//////////////////////////////////////////////////////////////////////////////////-->
+   <input type="submit" name="Soumetre" value="Créé Compte">
+</form>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'commun/base.html.twig' %}
+
+{% block principal %}
+    <h2>Confirmation de la commande</h2>
+    <h3>Contenu du panier</h3>
+
+    <!--Créé un tableau-->
+<table style="width:100%">
+
+<!--Pour chaque Produit-->
+{% for item in produits %}
+
+<!--Ligne du tableau-->
+<tr>
+
+    <!--Case du tableau Contenant l'image du produit-->
+    <th style="width:5%"><img width='90' src="{{ asset('Comic/prod' ~ item.id ~ '.jpg')}}" onerror="this.src='{{asset('Comic/inf.png')}}';"  alt="Image not found"></th>
+
+    
+    <!--Case du tableau Contenant le nom-->
+    <th>{{item.nomProduit}}</th>
+    <th style="width:25%">
+    <!--Case du tableau Contenant la quantité-->
+    Quantité: 
+        {{item.id}} 
+    </th>
+    <th>
+    <!--Case du tableau le prix-->
+    Prix à l'unité: {{item.prix}}$<br>
+    Prix Total: {{ item.prix * item.quantite }}$
+    </th>
+</tr>
+
+
+
+{% endfor %}
+</table>
+
+<!--Tableau Contenant le prix-->
+<table style="width:100%">
+<tr>
+<th>
+    Total: {{totalBrute}}$<br>
+    TPS: {{totalBrute*0.05|number_format(2,'.',',') }}$<br>
+    TVQ: {{(totalBrute*0.09975)|number_format(2,'.',',')}}$<br>
+    Total Avec Taxe: {{(totalBrute*0.09975+ totalBrute*0.05+ totalBrute)|number_format(2,'.',',')}}$ <br>
+    
+</th>
+</tr>
+</table>
+
+<button onclick="location.href='{{path('menuInfoCommande') }}'">Confirmer</button>    
+<button onclick="location.href='{{path('menuPanier') }}'">Annuler</button>    
+{% endblock %}

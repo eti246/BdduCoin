@@ -1,0 +1,27 @@
+{% extends 'Admin/Commun Admin/base.html.twig' %}
+{% block principal %}
+<h2>Modification des produits</h2>
+<!--Créé un tableau-->
+<table style="width:100%">
+
+<!--Pour chaque Produit-->
+{% for item in produit %}
+
+<!--Ligne du tableau-->
+<tr>
+
+    <!--Case du tableau Contenant l'image du produit-->
+    <th style="width:5%"><img width='50' src="{{ asset('Comic/prod' ~ item.id ~ '.jpg')}}" onerror="this.src='{{asset('Comic/inf.png')}}';"  alt="Image not found"></th>
+
+    
+    <!--Case du tableau Contenant le nom-->
+    <th><a href="{{path('modifProduit',{id :item.idCategorie} ) }}">{{item.nomProduit}}</a></th>
+    
+</tr>
+
+
+
+{% endfor %}
+</table>
+<button onclick= "location.href ='{{path('adminmenu') }}'">Revenir au menu de sélection</button>
+{% endblock %}

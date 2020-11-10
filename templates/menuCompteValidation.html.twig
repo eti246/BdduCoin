@@ -1,0 +1,43 @@
+{% extends 'commun/base.html.twig' %}
+
+{% block principal %}
+<h2>Confirmer</h2>
+<table>
+<tr>
+    <th>Nom utilisateur</th>
+    <th>{{app.session.get('utilisateurInfo')}}</th>
+</tr>
+<tr>
+    <th>Prenom</th>
+    <th>{{app.session.get('prenomInfo')}}</th>
+</tr>
+<tr>
+    <th>Nom</th>
+    <th>{{app.session.get('nomInfo')}}</th>
+</tr>
+<tr>
+    <th>Adresse</th>
+    <th>{{app.session.get('adresseInfo')}}</th>
+</tr>
+<tr>
+    <th>Ville</th>
+    <th>{{app.session.get('villeInfo')}}</th>
+</tr>
+<tr>
+    <th>Code Postal</th>
+    <th>{{app.session.get('codePostalInfo')}}</th>
+</tr>
+<tr>
+    <th>telephone</th>
+    <th>{{app.session.get('telephoneInfo')}}</th>
+</tr>
+<tr>
+    <th>Courriel</th>
+    <th>{{app.session.get('courrielInfo')}}</th>
+</tr>
+</table>
+
+<button onclick="location.href='{{path('rajouterCompte')}}'">Confirmer</button>
+<button>Annuler</button>
+
+{% endblock %}

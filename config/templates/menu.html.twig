@@ -1,0 +1,15 @@
+{% extends 'commun/base.html.twig' %}
+
+{% block principal %} 
+<div class='row'>
+    <section class='col-4 categorie'>
+        {{include('menuCategorie.html.twig')}}
+        
+    </section>
+    
+    <section class='col-8 catalogue'>
+        {{include('menuProduit.html.twig')}}
+    </section>
+
+</div>
+{% endblock %}

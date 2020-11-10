@@ -1,0 +1,28 @@
+{% extends 'Admin/Commun Admin/base.html.twig' %}
+{% block principal %}
+<h2>Rapport des Ventes</h2>
+<strong>Total des Ventes : {{total }}$</strong>
+<table style="width:100%">
+<tr>
+    <th>Id Commande</th>
+    <th>Total</th>
+    <th>Id Client</th>
+    <th>Nom Client</th>
+    <th>Telephone</th>
+    <th>Date de la commande</th>
+
+</tr>
+{% for item in commandes %}
+<tr>
+<th>{{item.id}}</th>
+<th>{{item.total}}$<br></th>
+<th>{{item.client.id}}</th>
+<th  >{{item.client.nom}} {{item.client.prenom}}</th>
+<th>{{item.client.telephone}}</th>
+<th>{{item.dateCommande|date("m/d/Y")}}</th>
+
+</tr>
+{% endfor %}
+</table>
+<button onclick= "location.href ='{{path('adminmenu') }}'">Revenir au menu de sélection</button>
+{% endblock %}

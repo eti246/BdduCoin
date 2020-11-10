@@ -1,0 +1,27 @@
+{% extends 'commun/base.html.twig' %}
+
+{% block principal %}
+
+<form method="POST" action="{{path('menuPreparation')}}">
+<h3>Type de carte</h3>
+ <input type="radio" id="carte1" name="carte" value="Mastercard">
+<label for="Mastercard"><img src="{{asset('Comic/mastercard.png')}}" height="35px"> </label> <br>
+
+<input type="radio"  id="carte2" name="carte" value="Visa">
+<label for="Visa">  <img src="{{asset('Comic/visa.png')}}" height="20px"> </label><br>
+
+<input type="radio"  id="carte3"name="carte" value="American">
+<label for="American">  <img src="{{asset('Comic/americanexpress.png')}}" height="50px"> </label><br>
+
+Numero de Carte de Crédit <input type="texte" id="numero" name="numero"><br>
+
+<label for="dateExpiration">Date d'expiration:</label>
+<input type="date" id="expiration" name="dateExpiration"><br>
+<button onclick="return confirmation()"> Valider </button>
+</form>
+
+
+
+<button onclick= "location.href ='{{path('menu') }}'">Retour au catalogue</button>   
+<button onclick="location.href='{{path('menuPanier') }}'">Retour Au Panier</button>    
+{% endblock %}

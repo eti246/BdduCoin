@@ -1,0 +1,24 @@
+{% extends 'Admin/Commun Admin/base.html.twig' %}
+{% block principal %}
+
+    <h2>Modification de categorie</h2>
+
+
+    <form method="POST">
+    <table>
+    <tr>
+        <th>Nom original de la categorie</th>
+        <th>Nouveau Nom</th>
+    </tr>
+    {% for item in categorie %}
+    <tr>
+
+        <th>{{item.Nom}}</th>
+        <th><input type="text" name="{{item.idCategorie}}"></th>
+    </tr>
+    {% endfor %}
+    </table>
+    <input type="submit" name="Soumetre" value="ModifierCategorie"> 
+    </form>
+    <button onclick= "location.href ='{{path('adminmenu') }}'">Revenir au menu de sélection</button>
+{% endblock %}

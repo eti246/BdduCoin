@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html lang='fr'>
+    
+    <head>
+    <!--Inclusion de fichier-->
+        {{include('commun/META_CSS_JS_BOOTSTRAP.html.twig')}}
+        <link rel='stylesheet' href="{{asset('css/corp.css')}}">
+        <script src="{{ asset('js/commande.js') }}"></script>
+        <script src="{{ asset('js/confirmationVisa.js') }}"></script>
+        <script src="{{ asset('js/confirmationMasterCard.js') }}"></script>
+        <script src="{{ asset('js/confirmationAmerican.js') }}"></script>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        {% block styleSheets %} {% endblock %}
+    </head>
+    <body>
+        <div class='container'>
+             <!--Affiche l'entête-->
+            {{include('commun/enTete.html.twig')}}
+            {% block principal %} {% endblock %}
+             <!--Affiche le pied de page-->
+            {{include('commun/pied.html.twig')}}
+        </div>
+        {% block javaScripts %} {% endblock %}
+    </body>
+</html>

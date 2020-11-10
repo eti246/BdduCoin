@@ -1,0 +1,11 @@
+<h4>Formulaire d'ajout de Catégorie</h4>
+<form method="POST">
+{% for message in app.flashes('notice') %}
+    <div class="alert alert-notice">
+        {{ message }}
+    </div>
+{% endfor %}
+Nom de la catégorie : <input type="text" name="nomCategorie"> <br>
+<input type="submit" name="Soumetre" value="Rajouter Catégorie">
+</form>
+<button onclick= "location.href ='{{path('adminmenu') }}'">Revenir au menu de sélection</button>

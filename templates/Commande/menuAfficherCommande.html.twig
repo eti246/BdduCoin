@@ -1,0 +1,55 @@
+{% extends 'commun/base.html.twig' %}
+ 
+
+
+
+
+{% block principal %}
+{% if commande is empty  %}
+Vous n'avez aucune commande <br> 
+{% else %}
+<h2>Liste de Vos Commandes</h2> <br>
+
+<table>
+{% for item in commande  %}
+<tr>
+ <th style="width:10%">
+ Numero de la Commande : {{item.id}}
+ </th>
+ <th style="width:20%">
+Total avec taxe: {{(item.total*0.09975+ item.total*0.05+ item.total)|number_format(2,'.',',')   }}$<br>
+Total Sans Taxe: {{item.total|number_format(2,'.',',')}}$<br>
+ </th>
+ <th style="width:20%">
+    Commande en date du :{{item.dateCommande|date("m/d/Y")}} <br>
+
+    {% if item.temp %} 
+    
+    il reste 
+    {% if item.tempValeur > 86400 %}
+    1 Jour 
+    {% endif %}
+
+    {% if (item.tempValeur%86400)/3600 > 0%}
+    {{(24-(item.tempValeur%86400)/3600)|number_format(0,'.','.')}} heure
+    {% endif %}
+    {% if (((item.tempValeur)%3600)/60) >0%}
+    {{(((item.tempValeur)%3600)/60)|number_format(0,'.','.')}} minute
+    {% endif %}
+    pour annuler la commande
+    {% endif %}
+
+<th style="width:20%">
+
+{% if item.temp %}
+  <button onclick="location.href='{{path('annulerCommande',{id :item.id} ) }}'" type="button">Annuler la Commande</button>
+ {% endif %}
+ </th>
+
+
+</tr>
+
+{% endfor %}
+</table>
+{% endif %}
+{% endblock %}

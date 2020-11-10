@@ -1,0 +1,26 @@
+<!--Affiche la banière-->
+<div class='row banniere'>
+    <h1> Bd Du Coin </h1>
+</div>
+<div class='contenuSite'>
+<nav id='navbar' class='row justify-content-end navbar navbar-expand-sm bg-dark navbar-dark'>
+    <ul class='navbar-nav'>
+        <!--Les éléments de la barre de navigation-->
+        <li class='nav-item'><a class='nav-link' href="{{path('adminmenu')}}">Menu</a></li>
+        <li class='nav-item'><a class='nav-link' href="{{path('ajoutercategorie')}}">Ajouter Catégorie</a></li>
+        <li class='nav-item'><a class='nav-link' href="{{path('modifierCategorie')}}">Modifier Catégorie</a></li>
+        <li class='nav-item'><a class='nav-link' href="{{path('ajouterProduit')}}">Ajouter Produit</a></li>
+        <li class='nav-item'><a class='nav-link' href="{{path('modifierProduit')}}">Modifier Produit</a></li>
+        <li class='nav-item'><a class='nav-link' href="{{path('rapportdesvente')}}">Rapports des Ventes</a></li>
+        <li class='nav-item'><a class='nav-link' href="{{path('afficherCatalogue')}}">Produit du Catalogue</a></li>
+        <li class='nav-item'><a class='nav-link' href="{{path('produitACommander')}}">Produit à Commander</a></li>
+    </ul>
+    
+</nav>
+<nav class='row justify-content-end navbar navbar-expand-sm bg-dark navbar-dark'>
+
+<ul>
+        <li class='nav-item'><a class='nav-link' href="{{path('deconnexion')}}">Déconnexion</a></li>
+    </ul>
+    </nav>
+</div>

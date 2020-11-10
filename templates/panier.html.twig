@@ -1,0 +1,18 @@
+{% extends 'commun/base.html.twig' %}
+
+{% block principal %} 
+
+<div class='row'>
+    <section class='col-2 option categorie'>
+        <!--Affiche les options-->
+        {{include('panier/option.html.twig')}}
+        
+    </section>
+    
+    <section class='col-10 catalogue produit' >
+        <!--Affiche les produits-->
+        {{include('panier/produit.html.twig')}}
+    </section>
+
+</div>
+{% endblock %}
